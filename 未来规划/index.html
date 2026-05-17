@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Expedition / Future Roadmap</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 粒子背景 -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="nav-logo">EXPEDITION</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#capabilities">Skills</a></li>
+      <li><a href="#vision">Vision</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       Hero 首页区域
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-badge">2026 — 2028</div>
+    <h1 class="hero-title">
+      Research<br>Expedition
+    </h1>
+    <p class="hero-subtitle">Future Roadmap</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      从基础课程到科研前沿，从校园实验室到世界顶尖学府。
+      这是一场关于成长、探索与突破的旅程。
+    </p>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Current Mission — 当前阶段
+       ============================================================ -->
+  <section class="section fade-up" id="mission">
+    <div class="section-label">01 / Current Mission</div>
+    <h2 class="section-title">当前阶段</h2>
+    <p class="section-subtitle">聚焦当下，步步为营。每个阶段都是通向未来的基石。</p>
+    <div id="mission-container"></div>
+  </section>
+
+  <!-- ============================================================
+       Main Timeline — 主时间轴
+       ============================================================ -->
+  <section class="section fade-up" id="timeline">
+    <div class="section-label">02 / Expedition Timeline</div>
+    <h2 class="section-title">探索时间轴</h2>
+    <p class="section-subtitle">每一个时间节点，都是一次研究探索的里程碑。</p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      <div id="timeline-container"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Skills / Research / Language
+       ============================================================ -->
+  <section class="section fade-up" id="capabilities">
+    <div class="section-label">03 / Capabilities</div>
+    <h2 class="section-title">能力矩阵</h2>
+    <p class="section-subtitle">科研、技术与语言的全面发展，构建多维竞争力。</p>
+
+    <div class="capabilities-grid" id="capabilities-container"></div>
+  </section>
+
+  <!-- ============================================================
+       Future Vision
+       ============================================================ -->
+  <section class="section fade-up" id="vision">
+    <div class="section-label">04 / Future Vision</div>
+    <h2 class="section-title">未来愿景</h2>
+    <p class="section-subtitle">心之所向，行之所往。每一步都在靠近理想的自己。</p>
+
+    <div class="vision-wrapper" id="vision-container">
+      <div class="vision-title">Research Expedition 2030</div>
+      <div class="vision-desc" id="vision-desc"></div>
+      <ul class="vision-goals" id="vision-goals"></ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <p class="footer-text">RESEARCH EXPEDITION · FUTURE ROADMAP · MMXXVI–MMXXVIII</p>
+  </footer>
+
+  <!-- ============================================================
+       Scripts — 顺序依赖
+       ============================================================ -->
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/capabilities.js"></script>
+  <script src="js/main.js"></script>
+
+  <!--
+    内联初始化：渲染 Vision 区域（因其数据在 config.js 中）
+    同时处理未在 main.js 中覆盖的初始状态
+  -->
+  <script>
+    (function() {
+      // Vision 区域渲染
+      var descEl = document.getElementById('vision-desc');
+      var goalsEl = document.getElementById('vision-goals');
+      var vision = TIMELINE_CONFIG.vision;
+
+      if (descEl) descEl.textContent = vision.description;
+
+      if (goalsEl) {
+        vision.goals.forEach(function(goal) {
+          var li = document.createElement('li');
+          li.className = 'vision-goal-item';
+          li.innerHTML = '<span class="vision-goal-marker"></span>' + goal;
+          goalsEl.appendChild(li);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
