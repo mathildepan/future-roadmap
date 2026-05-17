@@ -352,6 +352,15 @@ body {
   border: 1px solid rgba(77, 168, 218, 0.25);
 }
 
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
 .mission-goal {
   font-size: 17px;
   color: var(--text-secondary);
@@ -452,8 +461,8 @@ body {
   display: flex;
   align-items: flex-start;
   margin-bottom: 100px;
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.8s var(--ease-out-expo);
 }
 
@@ -743,6 +752,67 @@ body {
   transition: width 1.5s var(--ease-out-expo);
 }
 
+/* 分类区域 */
+.category-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.category-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.category-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* 目标院校标签 */
+.target-schools {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.schools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.school-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(77, 168, 218, 0.08);
+  border: 1px solid rgba(77, 168, 218, 0.2);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--glacier-light);
+  letter-spacing: 0.3px;
+  transition: all 0.3s;
+}
+
+.school-tag:hover {
+  background: rgba(77, 168, 218, 0.15);
+  border-color: var(--glacier);
+}
+
+/* Current Mission 补充 */
+.mission-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  position: relative;
+}
+
 /* ============================================================
    能力模块 (Research / Technical / Language)
    ============================================================ */
@@ -927,8 +997,8 @@ body {
    进场动画
    ============================================================ */
 .fade-up {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s var(--ease-out-expo),
               transform 0.8s var(--ease-out-expo);
 }
@@ -939,7 +1009,7 @@ body {
 }
 
 .fade-in {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s var(--ease-smooth);
 }
 
